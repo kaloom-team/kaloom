@@ -1,0 +1,17 @@
+:root {
+    --white:#fff;
+    --whtie-200:#F8F8F8;
+    --black:#000;
+    --purple:#5B0B8F;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  font-family: sans-serif;
+}
