@@ -1,6 +1,127 @@
-.main {
-    display: flex;
-    justify-content: center;
+@import "tailwindcss";
 
+@mixin title($color) {
+    color: $color;
+    font-family: "Baumans", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    text-shadow: 0.45px 0.45px 0 $color, -0.45px 0.45px 0 $color,
+        0.45px -0.45px 0 $color, -0.45px -0.45px 0 $color;
 }
 
+@mixin dualFont($color) {
+    font-family: "Sansation", sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    color: $color;
+
+    strong {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 4.22rem;
+
+        span {
+            font-family: "Inter";
+            font-weight: 400;
+        }
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentWelcome {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100vh;
+    margin: 0 4.56rem;
+    padding: 3.75rem 0;
+    width: 51.75rem; //1 rem = 16 50x16 = 800
+
+    .title {
+        margin: 0 0 4.38rem 0;
+
+        .kaloomTitle {
+            margin-top: 0.3rem;
+            @include title(var(--purple));
+        }
+    }
+
+    .subtitle {
+        margin-top: 0.62rem;
+        line-height: 120%;
+        @include dualFont(var(--purple));
+    }
+
+    .paragrafo {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        line-height: 160%;
+    }
+}
+
+.containerLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.63rem 4.38rem 1.25rem;
+    background-color: var(--purple);
+    width: 37.63rem;
+
+    .contentLogin {
+        display: flex;
+        flex-direction: column;
+        width: 416px;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            .h3 {
+                font-family: "Sen", sans-serif;
+                font-size: 2rem;
+                font-weight: 400;
+                color: var(--white);
+                text-transform: uppercase;
+            }
+
+            .input {
+                background-color: transparent;
+                color: var(--white);
+                border: none;
+                border-bottom: 1px solid var(--white);
+                width: 100%;
+            }
+
+            .a {
+                color: var(--white) !important;
+                font-family: "Sen", sans-serif;
+                font-size: 1.3rem;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .divider {
+        background-color: var(--violet);
+        border: none;
+        opacity: 0.4;
+        height: 0.1rem;
+        width: 100%;
+    }
+
+    .linkCadastro {
+        color: var(--white);
+        font-family: 'Sen', sans-serif;
+        font-size: 1.3rem;
+    }
+}

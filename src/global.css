@@ -1,17 +1,19 @@
 :root {
-    --white:#fff;
-    --whtie-200:#F8F8F8;
-    --black:#000;
-    --purple:#5B0B8F;
+    --white: #fff;
+    --whtie-200: #f8f8f8;
+    --black: #000;
+    --purple: #5b0b8f;
+    --violet: #996dff;
 }
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: var(--white);
-  font-family: sans-serif;
+    background-color: var(--white);
+    font-family: sans-serif;
+    height: 100vh; /*aplicado para a tela de login*/
 }
