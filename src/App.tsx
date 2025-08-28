@@ -1,19 +1,15 @@
 import styles from "./App.module.scss";
 
-export function App() {
+import { Welcome } from "./components/welcome";
+
+export function App() { 
     return (
         <main className={styles.main}>
             <div className={styles.contentWelcome}>
                 <div className={styles.title}>
                     <h1 className={styles.kaloomTitle}>kaloom</h1>
                 </div>
-                <h2 className={styles.subtitle}>
-                    Olá
-                    <strong>
-                        <span>,</span> <br />
-                        bem-vindo<span>!</span>
-                    </strong>
-                </h2>
+                <Welcome/>
                 <p className={styles.paragrafo}>
                     Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
                     ipsum dolor sit amet lorem ipsum dolor sit amet.
