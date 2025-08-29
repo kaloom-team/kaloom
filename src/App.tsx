@@ -1,6 +1,7 @@
 import styles from "./App.module.scss";
+import { ContainerForm } from "./components/ContainerForm";
 
-import { Welcome } from "./components/welcome";
+import { Welcome } from "./components/Welcome";
 
 export function App() { 
     return (
@@ -9,44 +10,14 @@ export function App() {
                 <div className={styles.title}>
                     <h1 className={styles.kaloomTitle}>kaloom</h1>
                 </div>
-                <Welcome/>
+                <Welcome titleOne="Olá" titleTwo="bem-vindo"/>
                 <p className={styles.paragrafo}>
                     Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
                     ipsum dolor sit amet lorem ipsum dolor sit amet.
                 </p>
             </div>
-
-            <div className={styles.containerLogin}>
-                <div className={styles.contentLogin}>
-                    <form action="" className={styles.form}>
-                        <h3 className={styles.h3}>login</h3>
-                        <input
-                            className={styles.input}
-                            type="email"
-                            name=""
-                            id=""
-                            placeholder="email"
-                        />
-                        <input
-                            className={styles.input}
-                            type="password"
-                            name=""
-                            id=""
-                            placeholder="senha"
-                        />
-                        <a className={styles.a} href="#">
-                            Esqueci minha senha.
-                        </a>
-                    </form>
-                </div>
-                <hr className={styles.divider} />
-                <p className={styles.linkCadastro}>
-                    Não tem uma conta?
-                    <b>
-                        <a href="#"> Cadastre-se</a>
-                    </b>
-                </p>
-            </div>
+            <ContainerForm />
+            
         </main>
     );
 }

@@ -1,12 +1,17 @@
 import styles from "../App.module.scss";
 
-export function Welcome() {
+interface WelcomeProps {
+    titleOne?: string;
+    titleTwo?: string;
+}
+
+export function Welcome({ titleOne, titleTwo }: WelcomeProps) {
     return (
         <h2 className={styles.subtitle}>
-            Olá
+            {titleOne}
             <strong>
                 <span>,</span> <br />
-                bem-vindo<span>!</span>
+                {titleTwo}<span>!</span>
             </strong>
         </h2>
     )
