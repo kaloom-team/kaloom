@@ -1,11 +1,11 @@
 import styles from "../App.module.scss";
 
-interface WelcomeProps {
+interface InfoFormProps {
     titleOne?: string;
     titleTwo?: string;
 }
 
-export function Welcome({ titleOne, titleTwo }: WelcomeProps) {
+export function InfoForm({ titleOne, titleTwo }: InfoFormProps) {
     return (
         <h2 className={styles.subtitle}>
             {titleOne}

@@ -1,7 +1,7 @@
 import styles from "./App.module.scss";
-import { ContainerForm } from "./components/ContainerForm";
+import { ContainerFormLogin } from "./components/ContainerFormLogin";
 
-import { Welcome } from "./components/Welcome";
+import { InfoForm } from "./components/InforForm";
 
 export function App() { 
     return (
@@ -10,13 +10,13 @@ export function App() {
                 <div className={styles.title}>
                     <h1 className={styles.kaloomTitle}>kaloom</h1>
                 </div>
-                <Welcome titleOne="Olá" titleTwo="bem-vindo"/>
+                <InfoForm titleOne="Olá" titleTwo="bem-vindo"/>
                 <p className={styles.paragrafo}>
                     Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
                     ipsum dolor sit amet lorem ipsum dolor sit amet.
                 </p>
             </div>
-            <ContainerForm />
+            <ContainerFormLogin />
             
         </main>
     );

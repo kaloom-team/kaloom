@@ -1,7 +1,7 @@
 import styles from "../App.module.scss";
 import { LoginInput } from "./LoginInput";
 
-export function ContentForm() {
+export function ContentFormLogin() {
     return (
         <div className={styles.contentLogin}>
             <form action="" className={styles.form}>

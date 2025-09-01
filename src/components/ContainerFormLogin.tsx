@@ -1,10 +1,10 @@
 import styles from "../App.module.scss";
-import { ContentForm } from "./ContentForm";
+import { ContentFormLogin } from "./ContentFormLogin";
 
-export function ContainerForm() {
+export function ContainerFormLogin() {
     return (
         <div className={styles.containerLogin}>
-            <ContentForm />
+            <ContentFormLogin />
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>
                 Não tem uma conta?
