@@ -1,5 +1,6 @@
 import styles from "../App.module.scss";
 import { ContentForm } from "./ContentForm";
+
 export function ContainerForm() {
     return (
         <div className={styles.containerLogin}>
@@ -7,9 +8,7 @@ export function ContainerForm() {
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>
                 Não tem uma conta?
-                <b>
-                    <a href="#"> Cadastre-se</a>
-                </b>
+                <a className={styles.linkao} href="#"> Cadastre-se</a>
             </p>
         </div>
     )

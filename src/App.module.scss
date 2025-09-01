@@ -7,6 +7,14 @@
         0.45px -0.45px 0 $color, -0.45px -0.45px 0 $color;
 }
 
+@mixin links($color, $weight, $decoration) {
+    color: $color;
+    font-weight: $weight;
+    font-family: "Sen", sans-serif;
+    font-size: 1.3rem;
+    text-decoration: $decoration;
+}
+
 @mixin dualFont($color) {
     font-family: "Sansation", sans-serif;
     font-size: 4rem;
@@ -77,6 +85,55 @@
         flex-direction: column;
         width: 416px;
 
+        .InputContainer{
+            position: relative;
+            width: 100%;
+
+            .input{
+                color: var(--white);
+                width: 100%;
+                font-size: 1rem;
+                padding: 10px 10px 10px 5px;	
+                display: block;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid var(--white);
+                background: transparent;
+                transition: top, font-size, color, border-bottom-color 0.2s;
+            }
+    
+            .label{
+                font-family: 'Sen', sans-serif;
+                font-size: 1.25rem;
+                color: var(--white);
+                opacity: 50%;
+                position: absolute;
+                left: 5px;
+                top: 10px;
+                transition: all 0.2s;
+            }
+    
+            .input:focus~.label{
+                top: -20px;
+                font-size: 14px;
+                color: #7700ff;
+                opacity: 100%;
+                
+                // .label{
+                //     top: -20px;
+                //     font-size: 14px;
+                //     color: #7700ff;
+                // }
+            }
+    
+            .input:focus{
+                border-bottom-color: #7700ff;
+                // box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+
+            }
+        }
+
+
         .form {
             display: flex;
             flex-direction: column;
@@ -92,19 +149,9 @@
                 text-transform: uppercase;
             }
 
-            .input {
-                background-color: transparent;
-                color: var(--white);
-                border: none;
-                border-bottom: 1px solid var(--white);
-                width: 100%;
-            }
-
-            .a {
-                color: var(--white) !important;
-                font-family: "Sen", sans-serif;
-                font-size: 1.3rem;
-                text-decoration: underline;
+            
+            .forgot{
+                @include links(var(--white), 600, underline);
             }
         }
     }
@@ -121,5 +168,9 @@
         color: var(--white);
         font-family: 'Sen', sans-serif;
         font-size: 1.3rem;
+
+        .linkao {
+            @include links(var(--white), 700, none);
+        }
     }
 }

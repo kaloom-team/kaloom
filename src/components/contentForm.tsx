@@ -1,25 +1,14 @@
 import styles from "../App.module.scss";
+import { LoginInput } from "./LoginInput";
 
 export function ContentForm() {
     return (
         <div className={styles.contentLogin}>
             <form action="" className={styles.form}>
                 <h3 className={styles.h3}>login</h3>
-                <input
-                    className={styles.input}
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="email"
-                />
-                <input
-                    className={styles.input}
-                    type="password"
-                    name=""
-                    id=""
-                    placeholder="senha"
-                />
-                <a className={styles.a} href="#">
+                <LoginInput type={"email"} placeholder={"email"}/>
+                <LoginInput type={"password"} placeholder={"senha"}/>
+                <a className={styles.forgot} href="#">
                     Esqueci minha senha.
                 </a>
             </form>
