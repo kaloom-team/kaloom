@@ -1,7 +1,17 @@
 import styles from '../App.module.scss';
 
-export function SignButton() {
+interface SignButtonProps{
+    img?:any,
+    textButton:string
+}
+
+export function SignButton({img, textButton}:SignButtonProps) {
+    img = img ? <img src={img}/> : ''
+
     return(
-        <div></div>
+        <div>
+            {img}
+            <p>{textButton}</p>
+        </div>
     )
 }

@@ -1,4 +1,4 @@
-import styles from './App.modules.sccs'
+import styles from '..App.module.scss'
 
 export function GoogleAuth(){
     return(
