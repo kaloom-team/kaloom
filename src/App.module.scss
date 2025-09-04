@@ -11,7 +11,7 @@
     color: $color;
     font-weight: $weight;
     font-family: "Sen", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     text-decoration: $decoration;
 }
 
@@ -102,7 +102,7 @@
                 color: var(--white);
                 width: 100%;
                 font-size: 1rem;
-                padding: 10px 10px 10px 5px;	
+                padding: 20px 10px 10px 5px;	
                 display: block;
                 outline: none;
                 border: none;
@@ -113,7 +113,7 @@
     
             .label{
                 font-family: 'Sen', sans-serif;
-                font-size: 1.25rem;
+                font-size: 1.5rem;
                 color: var(--white);
                 opacity: 50%;
                 position: absolute;
@@ -160,18 +160,21 @@
             
             .forgot{
                 @include links(var(--white), 100, underline);
+                margin-bottom: 10px;
             }
         }
     }
 
     .divider {
-        @include divider(100%, 0)
+        @include divider(100%, 0);
+        margin-bottom: 10px;
     }
 
     .linkCadastro {
         color: var(--white);
         font-family: 'Sen', sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.25rem;
+        font-weight: 10;
 
         .linkao {
             @include links(var(--white), 700, none);
@@ -200,7 +203,7 @@
 }
 
 .signInButton{
-    @include button(26rem, var(--white), 1.3rem, 0px);
+    @include button(26rem, var(--white), 1.25rem, 0px);
     transition: all 0.4s;
 
     .textEntrar{
@@ -213,7 +216,7 @@
 }
 
 .authButton{
-    @include button(11.875rem, var(--white), 0.75rem, 0.625rem);
+    @include button(11.875rem, var(--white), 0.60rem, 0.625rem);
 
     .textRede{
         @include textButton(var(--gray-300), 'Sen', 1.25rem);
