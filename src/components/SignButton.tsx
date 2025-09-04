@@ -1,17 +1,16 @@
-import styles from '../App.module.scss';
-
 interface SignButtonProps{
-    img?:any,
-    textButton:string
+    img?:string,
+    textButton: string,
+    styleButton:string,
+    styleText:string
 }
 
-export function SignButton({img, textButton}:SignButtonProps) {
-    img = img ? <img src={img}/> : ''
-
-    return(
-        <div>
-            {img}
-            <p>{textButton}</p>
-        </div>
+export function SignButton({img, textButton, styleButton, styleText}:SignButtonProps) {
+    return (
+        <button className={styleButton}>
+            {img && <img src={img} alt="Ícone"/>}
+            
+            <p className={styleText}>{textButton}</p>
+        </button>
     )
 }

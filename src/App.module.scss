@@ -33,6 +33,15 @@
     }
 }
 
+@mixin divider($width, $grow){
+    background-color: var(--violet);
+    border: none;
+    opacity: 0.4;
+    height: 0.1rem;
+    width: $width;
+    flex-grow: $grow;
+}
+
 .main {
     display: flex;
     justify-content: space-between;
@@ -148,20 +157,15 @@
                 color: var(--white);
                 text-transform: uppercase;
             }
-
             
             .forgot{
-                @include links(var(--white), 600, underline);
+                @include links(var(--white), 100, underline);
             }
         }
     }
 
     .divider {
-        background-color: var(--violet);
-        border: none;
-        opacity: 0.4;
-        height: 0.1rem;
-        width: 100%;
+        @include divider(100%, 0)
     }
 
     .linkCadastro {
@@ -173,4 +177,49 @@
             @include links(var(--white), 700, none);
         }
     }
+}
+
+@mixin button($width, $bg, $padding, $gap){
+    display: flex;
+    flex-direction: row;
+    gap: $gap;
+    width: $width; //26rem
+    // height: 4.38rem;
+    background-color: $bg;
+    border: 0 solid;
+    border-radius: 0.63rem;
+    padding: $padding; //1.3rem
+    justify-content: center;
+    cursor: pointer;
+}
+
+@mixin textButton($color, $family, $size){
+    color: $color;
+    font-family: $family, sans-serif;
+    font-size: $size;
+}
+
+.signInButton{
+    @include button(26rem, var(--white), 1.3rem, 0px);
+    transition: all 0.4s;
+
+    .textEntrar{
+        @include textButton(var(--purple), 'Sen', 1.5rem);
+    }
+
+    &:hover{
+        box-shadow: 0 0 20px #ffffff59;
+    }
+}
+
+.authButton{
+    @include button(11.875rem, var(--white), 0.75rem, 0.625rem);
+
+    .textRede{
+        @include textButton(var(--gray-300), 'Sen', 1.25rem);
+    }
+}
+
+.dividerAuth{
+    @include divider(auto, 1)
 }
