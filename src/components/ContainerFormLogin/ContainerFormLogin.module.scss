@@ -1,0 +1,28 @@
+@import '../../styles/mixins';
+
+.containerLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.63rem 4.38rem 1.25rem;
+    background-color: var(--purple);
+    width: 37.63rem;
+    
+    .divider {
+        @include divider(100%, 0);
+        margin-bottom: 10px;
+    }
+
+    .linkCadastro {
+        color: var(--white);
+        font-family: 'Sen', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 10;
+
+        .linkao {
+            @include links(var(--white), 700, none);
+        }
+    }
+}

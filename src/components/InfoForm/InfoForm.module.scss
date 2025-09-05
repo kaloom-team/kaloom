@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.subtitle {
+    margin-top: 0.62rem;
+    line-height: 120%;
+    @include dualFont(var(--purple));
+}

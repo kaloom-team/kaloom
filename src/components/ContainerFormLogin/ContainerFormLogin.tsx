@@ -1,7 +1,7 @@
-import styles from "../App.module.scss";
-import { ContentFormLogin } from "./ContentFormLogin";
+import styles from "./ContainerFormLogin.module.scss";
+import ContentFormLogin from "../ContentFormLogin/ContentFormLogin";
 
-export function ContainerFormLogin() {
+export default function ContainerFormLogin() {
     return (
         <div className={styles.containerLogin}>
             <ContentFormLogin />

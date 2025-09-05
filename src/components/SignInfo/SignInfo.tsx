@@ -1,8 +1,8 @@
-import styles from '../App.module.scss';
-import { InfoForm } from './InforForm';
-import { ContainerFormLogin } from './ContainerFormLogin';
+import styles from './SignInfo.module.scss';
+import InfoForm from '../InfoForm/InfoForm';
+import ContainerFormLogin from '../ContainerFormLogin/ContainerFormLogin';
 
-export function SignInfo(){
+export default function SignInfo(){
     return(
         <main className={styles.main}>
             <div className={styles.contentWelcome}>

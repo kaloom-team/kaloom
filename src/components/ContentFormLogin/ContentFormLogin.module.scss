@@ -1,0 +1,53 @@
+@import '../../styles/mixins';
+
+.contentLogin {
+    display: flex;
+    flex-direction: column;
+    width: 416px;
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        .h3 {
+            font-family: "Sen", sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .forgot {
+            @include links(var(--white), 100, underline);
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.signInButton{
+    @include button(26rem, var(--white), 1.25rem, 0px);
+    transition: all 0.4s;
+
+    .textEntrar{
+        @include textButton(var(--purple), 'Sen', 1.5rem);
+    }
+
+    &:hover{
+        box-shadow: 0 0 20px #ffffff59;
+    }
+}
+
+.authButton{
+    @include button(11.875rem, var(--white), 0.60rem, 0.625rem);
+
+    .textRede{
+        @include textButton(var(--gray-300), 'Sen', 1.25rem);
+    }
+}
+
+.dividerAuth{
+    @include divider(auto, 1)
+}

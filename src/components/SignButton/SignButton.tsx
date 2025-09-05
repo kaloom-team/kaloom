@@ -5,7 +5,7 @@ interface SignButtonProps{
     styleText:string
 }
 
-export function SignButton({img, textButton, styleButton, styleText}:SignButtonProps) {
+export default function SignButton({img, textButton, styleButton, styleText}:SignButtonProps) {
     return (
         <button className={styleButton}>
             {img && <img src={img} alt="Ícone"/>}

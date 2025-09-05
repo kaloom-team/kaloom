@@ -1,8 +1,8 @@
-import styles from "../App.module.scss";
-import { LoginInput } from "./LoginInput";
-import { SignButton } from "./SignButton";
+import styles from "./ContentFormLogin.module.scss";
+import LoginInput from "../LoginInput/LoginInput";
+import SignButton from "../SignButton/SignButton";
 
-export function ContentFormLogin() {
+export default function ContentFormLogin() {
     return (
         <div className={styles.contentLogin}>
             <form action="" className={styles.form}>
@@ -18,8 +18,8 @@ export function ContentFormLogin() {
                     <hr className={styles.dividerAuth} />
                 </div>
                 <div style={{ display: "flex", flexDirection: "row", gap: 32 }}>
-                    <SignButton img="/public/google-auth.svg" textButton="Google" styleButton={styles.authButton} styleText={styles.textRede} />
-                    <SignButton img="/public/github-auth.svg" textButton="GitHub" styleButton={styles.authButton} styleText={styles.textRede} />
+                    <SignButton img="/google-auth.svg" textButton="Google" styleButton={styles.authButton} styleText={styles.textRede} />
+                    <SignButton img="/github-auth.svg" textButton="GitHub" styleButton={styles.authButton} styleText={styles.textRede} />
                 </div>
                 <a className={styles.forgot} href="#">
                     Esqueci minha senha.
