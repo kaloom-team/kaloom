@@ -1,7 +1,8 @@
-import SignInfo from "./components/SignInfo/SignInfo";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 export function App() { 
     return (
-        <SignInfo />
+        <Login />
     );
 }

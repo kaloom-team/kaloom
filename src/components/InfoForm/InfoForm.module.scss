@@ -1,4 +1,4 @@
-@import '../../styles/mixins';
+@use '../../styles/mixins' as *;
 
 .subtitle {
     margin-top: 0.62rem;
