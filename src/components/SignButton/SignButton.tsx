@@ -1,8 +1,8 @@
 interface SignButtonProps{
-    img?:string,
-    textButton: string,
-    styleButton:string,
-    styleText:string
+    img?: string;
+    textButton: string;
+    styleButton: string;
+    styleText: string;
 }
 
 export default function SignButton({img, textButton, styleButton, styleText}:SignButtonProps) {

@@ -1,8 +1,8 @@
 import styles from './LoginInput.module.scss'
 
 interface LoginInputProps{
-    type: string,
-    placeholder:string,
+    type: string;
+    placeholder: string;
 }
 
 export default function LoginInput({type, placeholder}:LoginInputProps) {

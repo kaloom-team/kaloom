@@ -1,15 +1,23 @@
 import styles from "./ContainerFormLogin.module.scss";
 import ContentFormLogin from "../ContentFormLogin/ContentFormLogin";
 
-export default function ContainerFormLogin() {
+interface ILinkMessage {
+    message: string;
+    actionMessage: string;
+    link?: string;
+}
+
+export default function ContainerFormLogin({ message, actionMessage, link }: ILinkMessage) {
     return (
         <div className={styles.containerLogin}>
             <ContentFormLogin />
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>
-                Não tem uma conta?
-                <a className={styles.linkao} href="#"> Cadastre-se</a>
+                {message}
+                <a className={styles.linkao} href={link}>
+                    {" " + actionMessage}
+                </a>
             </p>
         </div>
-    )
+    );
 }
