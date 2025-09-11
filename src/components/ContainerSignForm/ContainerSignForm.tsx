@@ -1,4 +1,4 @@
-import styles from "./ContainerFormLogin.module.scss";
+import styles from "./ContainerSignForm.module.scss";
 import ContentFormLogin from "../ContentFormLogin/ContentFormLogin";
 
 interface ILinkMessage {
@@ -7,7 +7,7 @@ interface ILinkMessage {
     link?: string;
 }
 
-export default function ContainerFormLogin({ message, actionMessage, link }: ILinkMessage) {
+export default function ContainerSignForm({ message, actionMessage, link }: ILinkMessage) {
     return (
         <div className={styles.containerLogin}>
             <ContentFormLogin />

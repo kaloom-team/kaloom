@@ -1,6 +1,6 @@
 import styles from './SignInfo.module.scss';
 import InfoForm from '../InfoForm/InfoForm';
-import ContainerFormLogin from '../ContainerFormLogin/ContainerFormLogin';
+import ContainerSignForm from '../ContainerSignForm/ContainerSignForm';
 import type { CSSProperties } from 'react';
 
 interface IInfo {
@@ -26,7 +26,7 @@ export default function SignInfo({ infos }: TInfos) {
                 <InfoForm titleOne={title1} titleTwo={title2} />
                 <p className={styles.paragrafo}>{info}</p>
             </div>
-            <ContainerFormLogin message="Não tem uma conta?" actionMessage="Cadastre-se" link="#"/>
+            <ContainerSignForm message="Não tem uma conta?" actionMessage="Cadastre-se" link="#"/>
         </main>
     );
 }
