@@ -1,6 +1,7 @@
 import styles from './SignInfo.module.scss';
 import InfoForm from '../InfoForm/InfoForm';
 import ContainerSignForm from '../ContainerSignForm/ContainerSignForm';
+import type { ILinkMessage } from '../ContainerSignForm/ContainerSignForm';
 import type { CSSProperties } from 'react';
 
 interface IInfo {
@@ -8,6 +9,7 @@ interface IInfo {
     title1: string;
     title2: string;
     styleDirection?: CSSProperties;
+    linkMessage: ILinkMessage;
 };
 
 type TInfos = {
@@ -15,7 +17,7 @@ type TInfos = {
 };
 
 export default function SignInfo({ infos }: TInfos) {
-    const { info, title1, title2, styleDirection } = infos;
+    const { info, title1, title2, styleDirection, linkMessage } = infos;
 
     return (
         <main className={styles.main} style={styleDirection}>
@@ -26,7 +28,7 @@ export default function SignInfo({ infos }: TInfos) {
                 <InfoForm titleOne={title1} titleTwo={title2} />
                 <p className={styles.paragrafo}>{info}</p>
             </div>
-            <ContainerSignForm message="Não tem uma conta?" actionMessage="Cadastre-se" link="#"/>
+            <ContainerSignForm linkMessage={linkMessage}  />
         </main>
     );
 }
