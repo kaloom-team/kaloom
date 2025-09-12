@@ -1,15 +1,6 @@
 import styles from "./ContainerSignForm.module.scss";
 import ContentFormLogin from "../ContentFormLogin/ContentFormLogin";
-
-export interface ILinkMessage {
-    message: string;
-    actionMessage: string;
-    link?: string;
-}
-
-export type TLinkMessage = {
-    linkMessage: ILinkMessage
-}
+import type { TLinkMessage } from "../../utils/LinkMessage";
 
 export default function ContainerSignForm({ linkMessage }: TLinkMessage) {
     return (

@@ -9,7 +9,7 @@ export default function Login() {
                         info: "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.",
                         title1: "Olá,",
                         title2: "bem-vindo",
-                        linkMessage: {message: "Não tem uma conta?", actionMessage: "Cadastre-se", link: "#"}
+                        linkMessageInfo: {linkMessage: {message: "Não tem uma conta?", actionMessage: "Cadastre-se", link: "/register"}}
                     }
                 }
             />

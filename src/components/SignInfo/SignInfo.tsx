@@ -1,7 +1,7 @@
 import styles from './SignInfo.module.scss';
 import InfoForm from '../InfoForm/InfoForm';
 import ContainerSignForm from '../ContainerSignForm/ContainerSignForm';
-import type { ILinkMessage } from '../ContainerSignForm/ContainerSignForm';
+import type { TLinkMessage } from '../../utils/LinkMessage';
 import type { CSSProperties } from 'react';
 
 interface IInfo {
@@ -9,7 +9,7 @@ interface IInfo {
     title1: string;
     title2: string;
     styleDirection?: CSSProperties;
-    linkMessage: ILinkMessage;
+    linkMessageInfo: TLinkMessage;
 };
 
 type TInfos = {
@@ -17,7 +17,7 @@ type TInfos = {
 };
 
 export default function SignInfo({ infos }: TInfos) {
-    const { info, title1, title2, styleDirection, linkMessage } = infos;
+    const { info, title1, title2, styleDirection, linkMessageInfo } = infos;
 
     return (
         <main className={styles.main} style={styleDirection}>
@@ -28,7 +28,7 @@ export default function SignInfo({ infos }: TInfos) {
                 <InfoForm titleOne={title1} titleTwo={title2} />
                 <p className={styles.paragrafo}>{info}</p>
             </div>
-            <ContainerSignForm linkMessage={linkMessage}  />
+            <ContainerSignForm linkMessage={linkMessageInfo.linkMessage}  />
         </main>
     );
 }
