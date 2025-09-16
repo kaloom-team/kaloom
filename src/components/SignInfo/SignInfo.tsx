@@ -10,6 +10,7 @@ interface IInfo {
     title2: string;
     styleDirection?: CSSProperties;
     linkMessageInfo: TLinkMessage;
+    typeForm: 'login' | 'register';
 };
 
 type TInfos = {
@@ -28,7 +29,7 @@ export default function SignInfo({ infos }: TInfos) {
                 <InfoForm titleOne={title1} titleTwo={title2} />
                 <p className={styles.paragrafo}>{info}</p>
             </div>
-            <ContainerSignForm linkMessage={linkMessageInfo.linkMessage} typeForm={"login"} />
+            <ContainerSignForm linkMessage={linkMessageInfo} typeForm={{typeForm: infos.typeForm}} />
         </main>
     );
 }

@@ -8,7 +8,8 @@ export default function Register() {
                 title2:"Cadastre-se",
                 info: "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit",
                 styleDirection: { flexDirection: "row-reverse" },
-                linkMessageInfo: { linkMessage: { message: "Já tem uma conta?", actionMessage: "Entre", link: "/login" } }
+                linkMessageInfo: { linkMessage: { message: "Já tem uma conta?", actionMessage: "Entre", link: "/login" } },
+                typeForm: "register"
             }}
         />
     );

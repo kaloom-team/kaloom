@@ -7,15 +7,20 @@ interface IContainerSignFormProps{
     typeForm: 'login' | 'register';
 }
 
-export default function ContainerSignForm({ linkMessage }: TLinkMessage, { typeForm }: IContainerSignFormProps) {
-    return (
+type TProps = {
+    linkMessage: TLinkMessage;
+    typeForm: IContainerSignFormProps;
+}
+
+export default function ContainerSignForm({linkMessage, typeForm}: TProps) {
+    return ( 
         <div className={styles.containerLogin}>
-            {typeForm == 'login' ? <ContentFormLogin /> : <ContentFormRegister />}
+            {typeForm.typeForm == 'login' ? <ContentFormLogin /> : <ContentFormRegister />}
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>
-                {linkMessage.message}
-                <a className={styles.linkao} href={linkMessage.link}>
-                    {" " + linkMessage.actionMessage}
+                {linkMessage.linkMessage.message}
+                <a className={styles.linkao} href={linkMessage.linkMessage.link}>
+                    {" " + linkMessage.linkMessage.actionMessage}
                 </a>
             </p>
         </div>
