@@ -28,7 +28,7 @@ export default function SignInfo({ infos }: TInfos) {
                 <InfoForm titleOne={title1} titleTwo={title2} />
                 <p className={styles.paragrafo}>{info}</p>
             </div>
-            <ContainerSignForm linkMessage={linkMessageInfo.linkMessage}  />
+            <ContainerSignForm linkMessage={linkMessageInfo.linkMessage} typeForm={"login"} />
         </main>
     );
 }

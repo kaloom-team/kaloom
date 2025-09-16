@@ -1,16 +1,19 @@
-import styles from './LoginInput.module.scss'
+import type { CSSProperties } from 'react';
+import styles from './SignInput.module.scss'
 
-interface LoginInputProps{
+interface ISignInputProps{
     type: string;
     placeholder: string;
+    inputStyle?: CSSProperties;
 }
 
-export default function LoginInput({type, placeholder}:LoginInputProps) {
+export default function SignInput({type, placeholder, inputStyle}: ISignInputProps) {
     return (
         <div className={styles.InputContainer}>
             <input
                 className={styles.input}
                 type={type}
+                style={inputStyle}
                 name=""
                 id=""
             />

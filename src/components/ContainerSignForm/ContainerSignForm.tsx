@@ -1,11 +1,16 @@
 import styles from "./ContainerSignForm.module.scss";
 import ContentFormLogin from "../ContentFormLogin/ContentFormLogin";
+import ContentFormRegister from "../ContentFormRegister/ContentFormRegister";
 import type { TLinkMessage } from "../../utils/LinkMessage";
 
-export default function ContainerSignForm({ linkMessage }: TLinkMessage) {
+interface IContainerSignFormProps{
+    typeForm: 'login' | 'register';
+}
+
+export default function ContainerSignForm({ linkMessage }: TLinkMessage, { typeForm }: IContainerSignFormProps) {
     return (
         <div className={styles.containerLogin}>
-            <ContentFormLogin />
+            {typeForm == 'login' ? <ContentFormLogin /> : <ContentFormRegister />}
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>
                 {linkMessage.message}
