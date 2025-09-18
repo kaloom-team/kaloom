@@ -1,53 +1,35 @@
-@use '../../styles/mixins' as *;
+@use "/src/styles/mixins" as *;
 
-.contentLogin {
-    display: flex;
-    flex-direction: column;
-    width: 416px;
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-
-        .h3 {
-            font-family: "Sen", sans-serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--white);
-            text-transform: uppercase;
-        }
-
-        .forgot {
-            @include links(var(--white), 100, underline);
-            margin-bottom: 10px;
-        }
-    }
+@mixin btnActions($bg, $opc){
+    background-color: $bg !important;
 }
 
 .signInButton{
-    @include button(26rem, var(--white), 1.25rem, 0px);
+    @include button(6.9rem, var(--purple), 11px 44px, 0px);
     transition: all 0.4s;
+    border: solid var(--white) 2px;
+    padding: 44px, 11px;
+    box-sizing: border-box;
+    font-weight: bold;
 
     .textEntrar{
-        @include textButton(var(--purple), 'Sen', 1.5rem);
+        @include textButton(var(--white), 'Inter', 1.3rem);
     }
 
     &:hover{
-        box-shadow: 0 0 20px #ffffff59;
+        @include btnActions(var(--white-25p), 100%)
     }
-}
 
-.authButton{
-    @include button(11.875rem, var(--white), 0.60rem, 0.625rem);
+    &:focus{
+        @include btnActions(var(--white), 100%);
 
-    .textRede{
-        @include textButton(var(--gray-300), 'Sen', 1.25rem);
+        .textEntrar{
+            color: var(--purple);
+        }
+
     }
-}
-
-.dividerAuth{
-    @include divider(auto, 1)
+    
+    &:focus{
+        background-color: transparent;
+    }
 }
