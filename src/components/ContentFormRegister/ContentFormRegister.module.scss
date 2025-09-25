@@ -20,16 +20,15 @@
         @include btnActions(var(--white-25p), 100%)
     }
 
-    &:focus{
-        @include btnActions(var(--white), 100%);
-
-        .textEntrar{
-            color: var(--purple);
-        }
-
-    }
+    &:has(input:checked){
+            @include btnActions(var(--white), 100%);
     
-    &:focus{
-        background-color: transparent;
-    }
+            .textEntrar{
+                color: var(--purple);
+            }
+    
+            // background-color: transparent;
+            background-color: yellowgreen;
+    
+        }
 }

@@ -18,10 +18,10 @@ export default function ContentFormRegister() {
 
                 <p style={{alignSelf: "flex-start", fontFamily:"Sen", opacity:"50%", color:"white"}}>Selecione qual instituição estuda/estudou</p>
                 <div style={{display: "flex", gap: 10, alignSelf: "flex-start" }}>
-                    <SignButton textButton="Etec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} />
-                    <SignButton textButton="Fatec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} />
+                    <SignButton textButton="Etec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn={'checkbox'} />
+                    <SignButton textButton="Fatec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn={'checkbox'}/>
                 </div>
-                <SignButton textButton="Cadastrar" styleButton={styles.signInButton} styleText={styles.textEntrar} />
+            <SignButton textButton="Cadastrar" styleButton={styles.signInButton} styleText={styles.textEntrar} typeBtn={'button'} />
             </form>
         </div>
     )
