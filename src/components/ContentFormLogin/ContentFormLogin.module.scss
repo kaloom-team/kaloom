@@ -42,9 +42,14 @@
 
 .authButton{
     @include button(11.875rem, var(--white), 0.60rem, 0.625rem);
+    transition: all 0.4s;
 
     .textRede{
         @include textButton(var(--gray-300), 'Sen', 1.25rem);
+    }
+
+    &:hover{
+        box-shadow: 0 0 20px #ffffff59;
     }
 }
 
