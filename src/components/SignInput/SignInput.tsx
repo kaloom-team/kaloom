@@ -19,6 +19,7 @@ export default function SignInput({type, placeholder}: ISignInputProps) {
                 className={styles.input}
                 type={type}
                 name=""
+                required
             />
             <label htmlFor={id} className={styles.label}>{placeholder}</label>
         </div>

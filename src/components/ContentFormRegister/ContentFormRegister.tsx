@@ -13,7 +13,7 @@ export default function ContentFormRegister() {
                     <RegisterInput type={"text"} placeholder={"sobrenome"} />
                 </div>
                 <RegisterInput type={"text"} placeholder={"@username"} />
-                <RegisterInput type={"email"} placeholder={"email"} />
+                <RegisterInput type={"text"} placeholder={"email"} />
                 <RegisterInput type={"password"} placeholder={"senha"} />
 
                 <p style={{alignSelf: "flex-start", fontFamily:"Sen", opacity:"50%", color:"white"}}>Selecione qual instituição estuda/estudou</p>
