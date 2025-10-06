@@ -11,19 +11,21 @@
     padding: 44px, 11px;
     box-sizing: border-box;
     font-weight: bold;
-
+    
     .textEntrar{
         @include textButton(var(--white), 'Inter', 1.3rem);
     }
-
-    &:hover{
-        @include btnActions(var(--white-25p), 100%)
-    }
-
-    &:has(input:checked){
-            @include btnActions(var(--white), 100%);
     
-            .textEntrar{
+    &:hover{
+        @include btnActions(var(--white-25p), 100%);
+        display: grid;
+        flex-direction: column;
+    }
+    
+    &:has(input:checked){
+        @include btnActions(var(--white), 100%);
+        
+        .textEntrar{
                 color: var(--purple);
             }
     

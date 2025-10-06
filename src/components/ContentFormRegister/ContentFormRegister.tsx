@@ -17,7 +17,7 @@ export default function ContentFormRegister() {
                 <RegisterInput type={"password"} placeholder={"senha"} />
 
                 <p style={{alignSelf: "flex-start", fontFamily:"Sen", opacity:"50%", color:"white"}}>Selecione qual instituição estuda/estudou</p>
-                <div style={{display: "flex", gap: 10, alignSelf: "flex-start" }}>
+                <div style={{display: "flex", flexDirection: "column",gap: 10, alignSelf: "flex-start"}}>
                     <SignButton textButton="Etec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn="checkbox" />
                     <SignButton textButton="Fatec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn="checkbox" />
                 </div>
