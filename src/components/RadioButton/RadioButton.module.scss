@@ -1,0 +1,22 @@
+.inputRadio{
+    appearance: none;
+    //border: 0.3rem solid white;
+    outline: 0.125rem solid white;
+    outline-offset: 2px;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999rem;
+    margin: 0 0.5rem;
+    align-self: center;
+    opacity: 60%;
+
+    &:checked{
+        background: white;
+    }
+
+}
+
+ .label{
+    color: var(--white);
+    opacity: 60%;
+}
