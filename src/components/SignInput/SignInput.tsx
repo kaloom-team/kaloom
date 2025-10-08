@@ -19,9 +19,14 @@ export default function SignInput({type, placeholder}: ISignInputProps) {
                 className={styles.input}
                 type={type}
                 name=""
-                required
+                placeholder=""
             />
-            <label htmlFor={id} className={styles.label}>{placeholder}</label>
+            <label htmlFor={id} className={styles.label}>
+                {placeholder}
+            </label>
+            <p className={styles.p}>
+                Campo de {type} inválido. Por favor, use o formato correto (usuario@dominio.com).
+            </p>
         </div>
-    )
+    );
 }

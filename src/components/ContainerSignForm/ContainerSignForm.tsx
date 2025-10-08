@@ -14,7 +14,7 @@ type TProps = {
 
 export default function ContainerSignForm({linkMessage, typeForm}: TProps) {
     return ( 
-        <div className={styles.containerLogin}>
+        <div className={styles.containerSignForm}>
             {typeForm.typeForm == 'login' ? <ContentFormLogin /> : <ContentFormRegister />}
             <hr className={styles.divider} />
             <p className={styles.linkCadastro}>

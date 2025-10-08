@@ -4,6 +4,7 @@
 
     .input {
         color: var(--white);
+        margin-bottom: 0.5rem;
         width: 100%;
         font-size: 1rem;
         padding: 20px 10px 10px 5px;
@@ -40,19 +41,24 @@
     }
     
     .input:focus {
-        border-bottom-color: #7700ff;
-        // box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.5);
-        
+        border-bottom-color: #7700ff;        
     }
 
-    .input[type="email"]:valid~.label {
-        display: none;
-    }
-
-    .input:valid:not(:focus)~.label {
+    .input:not(:placeholder-shown):not(:focus)~.label {
         top: -5px;
         font-size: 14px;
         color: white;
         opacity: 50%;
     }
+
+    .p{
+        color: red;
+        font-weight: bold;
+        display: none;
+    }
+
+    .input:not(:placeholder-shown):not(:focus):invalid~.p{
+        display: inline;
+    }
+
 }

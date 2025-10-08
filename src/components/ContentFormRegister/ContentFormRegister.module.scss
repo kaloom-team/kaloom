@@ -26,11 +26,8 @@
         @include btnActions(var(--white), 100%);
         
         .textEntrar{
-                color: var(--purple);
-            }
-    
-            // background-color: transparent;
-            background-color: yellowgreen;
-    
+            color: var(--purple);
         }
+    
+    }
 }
