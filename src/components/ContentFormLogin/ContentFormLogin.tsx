@@ -9,7 +9,7 @@ export default function ContentFormLogin() {
                 <h3 className={styles.h3}>login</h3>
                 <LoginInput type={"email"} placeholder={"email"}/>
                 <LoginInput type={"password"} placeholder={"senha"} />
-                <SignButton textButton="Entrar" styleButton={styles.signInButton} styleText={styles.textEntrar} />
+                <SignButton textButton="Entrar" styleButton={styles.signInButton} styleText={styles.textEntrar} typeBtn="button"/>
                 <div style={{ display: "flex", width: "100%", alignItems: "center", justifyContent: "center" }}>
                     <hr className={styles.dividerAuth} />
                     <div style={{marginLeft: 13, marginRight: 13 }}>
@@ -18,8 +18,8 @@ export default function ContentFormLogin() {
                     <hr className={styles.dividerAuth} />
                 </div>
                 <div style={{ display: "flex", flexDirection: "row", gap: 32 }}>
-                    <SignButton img="/google-auth.svg" textButton="Google" styleButton={styles.authButton} styleText={styles.textRede} />
-                    <SignButton img="/github-auth.svg" textButton="GitHub" styleButton={styles.authButton} styleText={styles.textRede} />
+                    <SignButton img="/google-auth.svg" textButton="Google" styleButton={styles.authButton} styleText={styles.textRede} typeBtn="button"/>
+                    <SignButton img="/github-auth.svg" textButton="GitHub" styleButton={styles.authButton} styleText={styles.textRede} typeBtn="button"/>
                 </div>
                 <a className={styles.forgot} href="#">
                     Esqueci minha senha.
