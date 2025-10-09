@@ -3,6 +3,7 @@ import stylesB from "./ContentFormRegister.module.scss";
 import RegisterInput from "../SignInput/SignInput";
 import SignButton from "../SignButton/SignButton";
 import RadioButton from "../RadioButton/RadioButton";
+import AcademicSelector from "../AcademicSelector/AcademicSelector";
 
 export default function ContentFormRegister() {
      let name_radio_1 = "";
@@ -22,16 +23,11 @@ export default function ContentFormRegister() {
                 <RegisterInput type={"password"} placeholder={"senha"} />
 
                 <p style={{alignSelf: "flex-start", fontFamily:"Sen", opacity:"50%", color:"white"}}>Selecione qual instituição estuda/estudou</p>
-                <div style={{display: "flex", flexDirection: "row",gap: 10, alignSelf: "flex-start"}}>
-                    <div style={{display: "flex", flexDirection: "column", gap: "1.25rem"}}>
-                        <SignButton textButton="Etec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn="checkbox" />
-                        <SignButton textButton="Fatec" styleButton={stylesB.signInButton} styleText={stylesB.textEntrar} typeBtn="checkbox" />
-                    </div>
-                    <div style={{display: "flex", flexDirection: "column", gap: 10}}>
-                        <RadioButton title="Cursando" name={name_radio_1}/>
-                        <RadioButton title="Formado(a)" name={name_radio_1}/>
-                    </div>
-                </div>
+                
+                <AcademicSelector institution="Etec"/>
+                <AcademicSelector institution="Fatec"/>
+
+
                 <SignButton textButton="Cadastrar" styleButton={styles.signInButton} styleText={styles.textEntrar} typeBtn="button" />
             </form>
         </div>
