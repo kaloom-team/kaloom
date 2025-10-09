@@ -8,7 +8,7 @@ interface ISignInputProps{
 export default function SignInput({type, placeholder}: ISignInputProps) {
     let id = " ";
 
-    for(let i = 0; i<50; i++){
+    for(let i = 0; i<10; i++){
         id += String.fromCodePoint(Math.floor(Math.random()*26)+97)
     }
 

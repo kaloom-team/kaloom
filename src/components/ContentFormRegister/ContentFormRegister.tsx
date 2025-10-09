@@ -24,11 +24,10 @@ export default function ContentFormRegister() {
 
                 <p style={{alignSelf: "flex-start", fontFamily:"Sen", opacity:"50%", color:"white"}}>Selecione qual instituição estuda/estudou</p>
                 
-                <AcademicSelector institution="Etec"/>
-                <AcademicSelector institution="Fatec"/>
+                <AcademicSelector institution="Etec" name="name_radio_1"/>
+                <AcademicSelector institution="Fatec"name="name_radio_2"/>
 
 
-                <SignButton textButton="Cadastrar" styleButton={styles.signInButton} styleText={styles.textEntrar} typeBtn="button" />
             </form>
         </div>
     )

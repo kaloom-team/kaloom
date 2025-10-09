@@ -8,15 +8,17 @@
     border-radius: 999rem;
     margin: 0 0.5rem;
     align-self: center;
-    opacity: 60%;
+    opacity: 100%;
 
     &:checked{
-        background: white;
+        background: var(--pink);
     }
+    
+    
 
 }
 
  .label{
     color: var(--white);
-    opacity: 60%;
+    opacity: 100%;
 }
