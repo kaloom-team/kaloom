@@ -5,27 +5,21 @@ import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 
 
-interface AcademicSelector{
+interface IAcademicSelector{
     institutionName: "Etec" | "Fatec";
     radioName: string;
 }
 
 interface IInstitutionalUnit {
     id: number;
-    nomeunidade: string;
+    nomeUnidade: string;
 }
 
-export default function AcademicSelector({ institutionName, radioName }: AcademicSelector) {
+export default function AcademicSelector({ institutionName, radioName }: IAcademicSelector) {
     const [dados, setDados] = useState<IInstitutionalUnit[]>([]);
     const [checked, setChecked] = useState(false);
     const [selectedRadio, setSelectedRadio] = useState("");
     const selectRef = useRef<HTMLSelectElement>(null);
-
-    const dadosApi = [
-        { id: 1, nomeunidade: "unidade 1" },
-        { id: 2, nomeunidade: "unidade 2" },
-        { id: 3, nomeunidade: "unidade 3" },
-    ];
 
     useEffect(() => {
         const endpoint = institutionName;
@@ -33,24 +27,25 @@ export default function AcademicSelector({ institutionName, radioName }: Academi
 
         async function buscarDados() {
             try {
-                const resposta = dadosApi; //await axios.get(`${api}/${endpoint}`)
-                //const data = resposta.data;
-                setDados(resposta);
+                const resposta = await axios.get(`${apiUrl}/${endpoint}`)
+                const data = resposta.data;
+                setDados(data);
             } catch (err) {
                 console.log("Erro ao receber dados: " + err);
             }
         }
 
         buscarDados();
-    }, []);
+    }, [institutionName]);
 
     useEffect(() => {
-        if (!checked) {
+        if (checked) {
+            setSelectedRadio("Cursando");
+        } else {
             setSelectedRadio("");
-        }
-
-        if (!checked && selectRef.current) {
-            selectRef.current.value = "";
+            if (selectRef.current) {
+                selectRef.current.value = "";
+            }
         }
     }, [checked]);
 
@@ -95,27 +90,23 @@ export default function AcademicSelector({ institutionName, radioName }: Academi
             >
                 <select
                     ref={selectRef}
-                    id="select-unit"
+                    id={`select-unit-${institutionName}`}
                     name=""
                     className="w-[9.8rem] h-[2.25rem] text-[0.8rem] bg-transparent text-white border-2 border-white font-bold text-left outline-none focus:ring-1 focus:ring-white-300 focus:ring-opacity-50"
                     disabled={!checked}
+                    required
                 >
-                    <option
-                        value=""
-                        disabled
-                        selected
-                        style={{ color: "white" }}
-                    >
+                    <option value="" disabled style={{ color: "white" }}>
                         Selecione a unidade
                     </option>
                     {dados.map((item) => {
                         return (
                             <option
                                 key={item.id}
-                                value={item.nomeunidade}
+                                value={item.nomeUnidade}
                                 className="text-black"
                             >
-                                {item.nomeunidade}
+                                {item.nomeUnidade}
                             </option>
                         );
                     })}
