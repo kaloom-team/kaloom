@@ -40,12 +40,12 @@ export default function ContentFormRegister() {
 
                     <div className="flex flex-col gap-[0.1875rem]">
                         <AcademicSelector
-                            institution="Etec"
-                            name="name_radio_1"
+                            institutionName="Etec"
+                            radioName="name_radio_1"
                         />
                         <AcademicSelector
-                            institution="Fatec"
-                            name="name_radio_2"
+                            institutionName="Fatec"
+                            radioName="name_radio_2"
                         />
                     </div>
                 </div>
