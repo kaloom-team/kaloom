@@ -13,12 +13,11 @@
     &:checked{
         background: var(--pink);
     }
-    
-    
-
 }
 
- .label{
+.label{
     color: var(--white);
     opacity: 100%;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
 }

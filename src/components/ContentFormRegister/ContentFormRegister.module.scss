@@ -5,15 +5,16 @@
 }
 
 .signInButton{
-    @include button(6.9rem, var(--purple), 11px 44px, 0px);
+    @include button(6.5rem, var(--purple), 0, 0px);
     transition: all 0.4s;
-    border: solid var(--white) 2px;
-    padding: 44px, 11px;
+    height: 41px;
+    align-items: center;
+    border: solid var(--white) 1px;
     box-sizing: border-box;
     font-weight: bold;
     
     .textEntrar{
-        @include textButton(var(--white), 'Inter', 1.3rem);
+        @include textButton(var(--white), 'Inter', 1.25rem);
     }
     
     &:hover{
