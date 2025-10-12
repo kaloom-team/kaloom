@@ -1,0 +1,31 @@
+@use "/src/styles/mixins" as *;
+
+.button
+    @include button(6.5rem, var(--purple), 0, 0px);
+    transition: all 0.4s;
+    height: 41px;
+    align-items: center;
+    border: solid var(--white) 1px;
+    box-sizing: border-box;
+    font-weight: bold;
+
+    
+    .text
+        @include textButton(var(--white), 'Inter', 1.25rem);
+
+    &:hover
+        @include btnActions(var(--white-25p), 100%);
+        display: grid;
+        flex-direction: column;
+    
+    
+    &:has(input:checked)
+        @include btnActions(var(--white), 100%);
+        
+        .text
+            color: var(--purple);
+
+.select:disabled
+    color: #ADADAD
+    border: 2px solid #ADADAD
+    opacity: 40%

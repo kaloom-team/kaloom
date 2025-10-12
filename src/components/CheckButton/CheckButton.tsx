@@ -4,8 +4,8 @@ interface SignButtonProps {
     textButton: string;
     styleButton: string;
     styleText: string;
-    checked: boolean; // estado do pai
-    setChecked: (val: boolean) => void; // função para alterar
+    checked: boolean;
+    setChecked: (val: boolean) => void;
 }
 
 export default function CheckButton({

@@ -13,11 +13,23 @@
     &:checked{
         background: var(--pink);
     }
+
+    &:disabled{
+        outline: 0.125rem solid #ADADAD;
+        opacity: 40%;
+    }
 }
 
 .label{
     color: var(--white);
     opacity: 100%;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+}
+
+.desabilitado{
+    color:#ADADAD;
+    opacity: 40%;
     font-family: "Inter", sans-serif;
     font-weight: bold;
 }

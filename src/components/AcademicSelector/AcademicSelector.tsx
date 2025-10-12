@@ -1,11 +1,10 @@
 import RadioButton from "../RadioButton/RadioButton";
-import stylesB from "../ContentFormRegister/ContentFormRegister.module.scss";
+import styles from "./AcademicSelector.module.sass";
 import CheckButton from "../CheckButton/CheckButton";
 import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 
-
-interface IAcademicSelector{
+interface IAcademicSelector {
     institutionName: "Etec" | "Fatec";
     radioName: string;
 }
@@ -15,7 +14,10 @@ interface IInstitutionalUnit {
     nomeUnidade: string;
 }
 
-export default function AcademicSelector({ institutionName, radioName }: IAcademicSelector) {
+export default function AcademicSelector({
+    institutionName,
+    radioName,
+}: IAcademicSelector) {
     const [dados, setDados] = useState<IInstitutionalUnit[]>([]);
     const [checked, setChecked] = useState(false);
     const [selectedRadio, setSelectedRadio] = useState("");
@@ -27,7 +29,7 @@ export default function AcademicSelector({ institutionName, radioName }: IAcadem
 
         async function buscarDados() {
             try {
-                const resposta = await axios.get(`${apiUrl}/${endpoint}`)
+                const resposta = await axios.get(`${apiUrl}/${endpoint}`);
                 const data = resposta.data;
                 setDados(data);
             } catch (err) {
@@ -53,11 +55,12 @@ export default function AcademicSelector({ institutionName, radioName }: IAcadem
         <div className="flex flex-row justify-center items-center gap-3">
             <CheckButton
                 textButton={institutionName}
-                styleButton={stylesB.signInButton}
-                styleText={stylesB.textEntrar}
+                styleButton={styles.button}
+                styleText={styles.text}
                 checked={checked}
                 setChecked={setChecked}
             />
+
             <div
                 style={{
                     padding: "0.375rem 0.3125rem",
@@ -92,7 +95,7 @@ export default function AcademicSelector({ institutionName, radioName }: IAcadem
                     ref={selectRef}
                     id={`select-unit-${institutionName}`}
                     name=""
-                    className="w-[9.8rem] h-[2.25rem] text-[0.8rem] bg-transparent text-white border-2 border-white font-bold text-left outline-none focus:ring-1 focus:ring-white-300 focus:ring-opacity-50"
+                    className={`${styles.select} w-[9.8rem] h-[2.25rem] text-[0.8rem] bg-transparent text-white border-2 border-white font-bold text-left outline-none focus:ring-1 focus:ring-white-300 focus:ring-opacity-50`}
                     disabled={!checked}
                     required
                 >

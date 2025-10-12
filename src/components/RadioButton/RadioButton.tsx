@@ -25,7 +25,10 @@ export default function RadioButton({ title, name, state, checked, onChange }: I
                 onChange={onChange}
                 disabled={state}
             />
-            <label className={stylesRadio.label} htmlFor={id}>
+            <label
+                className={!state ? stylesRadio.label : stylesRadio.desabilitado}
+                htmlFor={id}
+            >
                 {title}
             </label>
         </div>
