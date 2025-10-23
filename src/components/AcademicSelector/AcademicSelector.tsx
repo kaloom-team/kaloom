@@ -7,6 +7,11 @@ import axios from "axios";
 interface IAcademicSelector {
     institutionName: "Etec" | "Fatec";
     radioName: string;
+    onSelectChange?: (data: {
+        etec: number;
+        fatec: number;
+        situacao: number | null;
+    }) => void;
 }
 
 interface IInstitutionalUnit {
@@ -17,6 +22,7 @@ interface IInstitutionalUnit {
 export default function AcademicSelector({
     institutionName,
     radioName,
+    onSelectChange,
 }: IAcademicSelector) {
     const [dados, setDados] = useState<IInstitutionalUnit[]>([]);
     const [checked, setChecked] = useState(false);
@@ -24,12 +30,30 @@ export default function AcademicSelector({
     const selectRef = useRef<HTMLSelectElement>(null);
 
     useEffect(() => {
+        if (onSelectChange) {
+            const etecValue = institutionName === "Etec" && checked ? 1 : 0;
+            const fatecValue = institutionName === "Fatec" && checked ? 1 : 0;
+
+            let situacaoValue: number | null = null;
+
+            if (selectedRadio === "Cursando") situacaoValue = 1;
+            else if (selectedRadio === "Formado(a)") situacaoValue = 2;
+
+            onSelectChange({
+                etec: etecValue,
+                fatec: fatecValue,
+                situacao: situacaoValue,
+            });
+        }
+    }, [checked, selectedRadio]);
+
+    useEffect(() => {
         const endpoint = institutionName;
         const apiUrl = `https://localhost:7020`;
 
         async function buscarDados() {
             try {
-                const resposta = await axios.get(`${apiUrl}/${endpoint}`);
+                const resposta = await axios.get(`${apiUrl}/api/${endpoint}`);
                 const data = resposta.data;
                 setDados(data);
             } catch (err) {
