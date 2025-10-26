@@ -1,4 +1,3 @@
-import styles from '@/components/ContentFormLogin/ContentFormLogin.module.scss';
 import { Button } from '../ui/button';
 
 
@@ -12,7 +11,7 @@ export default function Menu() {
             <div id='buttons' className='flex gap-[0.625rem]'>
 
                 <Button variant="outline" className='rounded-[3.125rem] w-[4.688rem] h-[2.438rem] bg-[#6C27B3] text-white border-none'>Login</Button>    
-                <Button variant="outline" className='rounded-[3.125rem] w-[4.688rem] h-[2.438rem] bg-[#6C27B3] text-white border-none'>Cadastro</Button>    
+                <Button variant="outline" className='rounded-[3.125rem] w-[4.688rem] h-[2.435rem] bg-[#6C27B3] text-white border-none'>Cadastro</Button>    
             </div>
         </div>
     )
