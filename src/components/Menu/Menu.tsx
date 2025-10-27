@@ -4,9 +4,9 @@ import { Button } from '../ui/button';
 export default function Menu() {
     return (
         <div className='flex gap-[2.188rem]'>
-            <a href="" className='text-white'>Home</a>
-            <a href="" className='text-white'>Suporte</a>
-            <a href="" className='text-white'>Contato</a>
+            <a href="" className='text-white underline underline-offset-8'>Home</a>
+            <a href="" className='text-white underline underline-offset-8'>Suporte</a>
+            <a href="" className='text-white underline underline-offset-8'>Contato</a>
 
             <div id='buttons' className='flex gap-[0.625rem]'>
 
