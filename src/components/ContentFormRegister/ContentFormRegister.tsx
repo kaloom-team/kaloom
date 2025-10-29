@@ -4,11 +4,13 @@ import styles from "../ContentFormLogin/ContentFormLogin.module.scss";
 import RegisterInput from "../SignInput/SignInput";
 import AcademicSelector from "../AcademicSelector/AcademicSelector";
 import SignButton from "../SignButton/SignButton";
+import Swal from "sweetalert2";
 
 interface ITipoAluno {
-    etec: number;
-    fatec: number;
-    situacao: number | null;
+    etec: boolean;
+    fatec: boolean;
+    statusEtec: 1 | 2;
+    statusFatec: 1 | 2;
 }
 
 export default function ContentFormRegister() {
@@ -23,25 +25,28 @@ export default function ContentFormRegister() {
     const [nome, setNome] = useState("");
     const [sobrenome, setSobrenome] = useState("");
     const [username, setUsername] = useState("");
+    const [dataNascimento, setDataNascimento] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [tipoAluno, setTipoAluno] = useState<ITipoAluno>({
-        etec: 0,
-        fatec: 0,
-        situacao: null,
+        etec: false,
+        fatec: false,
+        statusEtec: 1,
+        statusFatec: 1
     });
 
 
     const submit = async (e: React.FormEvent) => {
         try {
-            const url: string = "http://localhost:7020/api";
+            const url: string = "https://localhost:7020/api";
 
             e.preventDefault();
 
             const TipoAluno = {
                 fatec: tipoAluno.fatec,
                 etec: tipoAluno.etec,
-                situacaoAcademica: tipoAluno.situacao,
+                statusEtec: tipoAluno.statusEtec,
+                statusFatec: tipoAluno.statusFatec,
             };
 
             const tipoAlunoResponse = await axios.post(
@@ -68,10 +73,10 @@ export default function ContentFormRegister() {
             const Aluno = {
                 nome,
                 sobrenome,
-                username,
                 nomeUsuario: username,
-                idUsuario: idUsuario,
-                idTipoAluno: idTipoAluno,
+                dataNascimento,
+                idUsuario,
+                idTipoAluno,
             };
 
             const alunoResponse = await axios.post(
@@ -79,11 +84,34 @@ export default function ContentFormRegister() {
                 Aluno
             );
             console.log("Cadastro realizado com sucesso: ", alunoResponse.data);
+            // window.alert("Cadastro realizado com sucesso!");
+
+            await Swal.fire({
+                title: "Cadastrado com sucesso!",
+                text: "Você será redirecionado para a tela de login.",
+                icon: "success",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff",
+                backdrop: `
+                    rgba(91, 11, 143, 0.7)
+                    url("/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `,
+            });
 
             window.location.href = "http://localhost:5173/login";
         } catch (error) {
             console.error("Erro ao cadastrar: ", error);
-            window.alert("Erro no cadastro!");
+            
+            await Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Erro ao realizar o cadastro :(",
+                footer: '<a href="#">Por que estou tendo esse problema?</a>',
+            });
         }
     };
 
@@ -111,12 +139,20 @@ export default function ContentFormRegister() {
                         onChange={(e) => setSobrenome(e.target.value)}
                     />
                 </div>
-                <RegisterInput
-                    type={"text"}
-                    placeholder={"@username"}
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+                <div className="flex gap-[2rem] w-[100%]">
+                    <RegisterInput
+                        type={"text"}
+                        placeholder={"@username"}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <RegisterInput
+                        type={"date"}
+                        placeholder={"nascimento"}
+                        value={dataNascimento}
+                        onChange={(e) => setDataNascimento(e.target.value)}
+                    />
+                </div>
                 <RegisterInput
                     type={"email"}
                     placeholder={"email"}

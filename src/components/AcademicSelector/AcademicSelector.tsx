@@ -7,11 +7,12 @@ import axios from "axios";
 interface IAcademicSelector {
     institutionName: "Etec" | "Fatec";
     radioName: string;
-    onSelectChange?: (data: {
-        etec: number;
-        fatec: number;
-        situacao: number | null;
-    }) => void;
+    onSelectChange?: (data: Partial<{
+        etec: boolean;
+        fatec: boolean;
+        statusEtec: 1 | 2;
+        statusFatec: 1 | 2;
+    }>) => void;
 }
 
 interface IInstitutionalUnit {
@@ -31,19 +32,37 @@ export default function AcademicSelector({
 
     useEffect(() => {
         if (onSelectChange) {
-            const etecValue = institutionName === "Etec" && checked ? 1 : 0;
-            const fatecValue = institutionName === "Fatec" && checked ? 1 : 0;
+            const etecValue =
+                institutionName === "Etec" && checked ? true : false;
+            const fatecValue =
+                institutionName === "Fatec" && checked ? true : false;
 
-            let situacaoValue: number | null = null;
+            let statusEtec: 1 | 2 = 1;
+            let statusFatec: 1 | 2 = 1;
 
-            if (selectedRadio === "Cursando") situacaoValue = 1;
-            else if (selectedRadio === "Formado(a)") situacaoValue = 2;
+            if (selectedRadio === "Formado(a)") {
+                if (institutionName === "Etec") statusEtec = 2;
+                if (institutionName === "Fatec") statusFatec = 2;
+            }
 
-            onSelectChange({
-                etec: etecValue,
-                fatec: fatecValue,
-                situacao: situacaoValue,
-            });
+            // onSelectChange({
+            //     etec: etecValue,
+            //     fatec: fatecValue,
+            //     statusEtec,
+            //     statusFatec,
+            // });
+
+            if (institutionName === "Etec") {
+                onSelectChange({
+                    etec: etecValue,
+                    statusEtec: statusEtec,
+                });
+            } else if (institutionName === "Fatec") {
+                onSelectChange({
+                    fatec: fatecValue,
+                    statusFatec: statusFatec,
+                });
+            }
         }
     }, [checked, selectedRadio]);
 
