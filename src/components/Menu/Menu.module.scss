@@ -1,0 +1,24 @@
+.MenuLink{
+    position: relative;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 2px;
+        background-color: var(--white);
+        transform: scaleX(1);
+        transition: widht 10s ease;
+    }
+
+    &:hover::after{
+        width: 100%;
+    }
+}
