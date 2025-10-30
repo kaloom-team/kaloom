@@ -32,12 +32,6 @@
         font-size: 14px;
         color: #7700ff;
         opacity: 100%;
-
-        // .label{
-        //     top: -20px;
-        //     font-size: 14px;
-        //     color: #7700ff;
-        // }
     }
     
     .input:focus {
@@ -59,6 +53,10 @@
 
     .input:not(:placeholder-shown):not(:focus):invalid~.p{
         display: inline;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
     }
 
 }

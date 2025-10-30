@@ -84,7 +84,6 @@ export default function ContentFormRegister() {
                 Aluno
             );
             console.log("Cadastro realizado com sucesso: ", alunoResponse.data);
-            // window.alert("Cadastro realizado com sucesso!");
 
             await Swal.fire({
                 title: "Cadastrado com sucesso!",
@@ -204,16 +203,3 @@ export default function ContentFormRegister() {
         </div>
     );
 }
-/**
- * element.style {
-    appearance: none;
-    /* border: 2px solid white; * /
-    outline: 2px solid white;
-    outline-offset: 2px;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999rem;
-    margin: 0 0.5rem;
-    align-self: center;
-}
- */

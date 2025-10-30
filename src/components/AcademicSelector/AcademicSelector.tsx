@@ -45,13 +45,6 @@ export default function AcademicSelector({
                 if (institutionName === "Fatec") statusFatec = 2;
             }
 
-            // onSelectChange({
-            //     etec: etecValue,
-            //     fatec: fatecValue,
-            //     statusEtec,
-            //     statusFatec,
-            // });
-
             if (institutionName === "Etec") {
                 onSelectChange({
                     etec: etecValue,
