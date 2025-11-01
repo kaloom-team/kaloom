@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <div className='flex items-baseline gap-[2.188rem]'>
             <li className='flex items-baseline gap-[2.188rem]'>
-                <a href="#" className={styles.MenuLink}>Home</a>
+                <a href="#" className={styles.SelectedMenuLink}>Home</a>
                 <a href="#" className={styles.MenuLink}>Suporte</a>
                 <a href="#" className={styles.MenuLink}>Contato</a>
             </li>
