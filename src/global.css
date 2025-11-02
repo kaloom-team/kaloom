@@ -1,7 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
 /*---break---*/
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-kaloom: "Baumans", sans-serif; 
+}
 
 :root {
     --white: #fff;
