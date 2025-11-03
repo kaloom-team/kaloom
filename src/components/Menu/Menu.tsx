@@ -12,11 +12,11 @@ export default function Menu() {
 
             <div id='buttons' className='flex gap-[0.625rem]'>
                 <li className='flex gap-[0.925rem]'>
-                    <a href='/Login'>
+                    <a href='/login'>
                         <Button variant="outline" className='rounded-[3.125rem] w-[4.688rem] h-[2.435rem] bg-[#6C27B3] text-white border-none cursor-pointer font-bold'>Login</Button> 
                     </a>
                     
-                    <a href='/Register'>
+                    <a href='/register'>
                         <Button variant="outline" className='rounded-[3.125rem] w-[6.125rem] h-[2.435rem] bg-[#6C27B3] text-white border-none cursor-pointer font-bold'>Cadastro</Button>
                     </a>
                 </li>
