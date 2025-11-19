@@ -8,6 +8,10 @@
   --font-kaloom: "Baumans", sans-serif; 
 }
 
+input[type="password"]::-ms-reveal {
+    display: none;
+}
+
 :root {
     --white: #fff;
     --white-25p: #ffffff40;

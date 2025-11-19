@@ -34,13 +34,37 @@ export default function ContentFormRegister() {
         statusEtec: 1,
         statusFatec: 1
     });
-
-
+    
+    
     const submit = async (e: React.FormEvent) => {
         try {
+            e.preventDefault();
+            
             const url: string = "https://localhost:7020/api";
 
-            e.preventDefault();
+            const tiposResponse = await axios.get(`${url}/TipoAluno`);
+            const tipos: any[] = tiposResponse.data;
+
+            const selecionado = tipos.find(t =>
+                t.etec === tipoAluno.etec &&
+                t.fatec === tipoAluno.fatec &&
+                t.statusEtec === (tipoAluno.etec ? tipoAluno.statusEtec : null) &&
+                t.statusFatec === (tipoAluno.fatec ? tipoAluno.statusFatec : null)
+            );
+
+            if (!selecionado) {
+                console.error("Nenhum tipoAluno correspondente encontrado");
+                await Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "Tipo de aluno inválido.",
+                });
+                return;
+            }
+
+            const idTipoAl: number = selecionado.id;
+            console.log("TipoAluno identificado com Id: ", idTipoAl);
+
 
             const TipoAluno = {
                 fatec: tipoAluno.fatec,
@@ -49,13 +73,7 @@ export default function ContentFormRegister() {
                 statusFatec: tipoAluno.statusFatec,
             };
 
-            const tipoAlunoResponse = await axios.post(
-                `${url}/TipoAluno`,
-                TipoAluno
-            );
-
-            const idTipoAluno = tipoAlunoResponse.data.id;
-            console.log("TipoAluno cadastrado com Id: ", idTipoAluno);
+            const idTipoAluno = idTipoAl;
 
             const Usuario = {
                 email,
