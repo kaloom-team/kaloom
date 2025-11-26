@@ -1,7 +1,7 @@
 import styles from "./ContentFormLogin.module.scss";
 import LoginInput from "../SignInput/SignInput";
 import SignButton from "../SignButton/SignButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -11,6 +11,58 @@ export default function ContentFormLogin() {
     const [senha, setSenha] = useState("");
     const port = "7020";
     const url = `https://localhost:${port}/api/Usuario`;
+
+    const GITHUB_CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
+    const REDIRECT_URI = "http://localhost:5173/login";
+
+    function loginGithub() {
+        window.location.href =
+            `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}` +
+            `&redirect_uri=${REDIRECT_URI}&scope=user:email`;
+    }
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get("code");
+
+        async function authenticateWithGithub(code: string) {
+            Swal.fire({
+                title: "Verificando...",
+                icon: "info",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+
+            try {
+                const response = await axios.post(`${url}/LoginGithub`, {
+                    code,
+                });
+
+                console.log("GitHub login OK: ", response.data);
+
+                await Swal.fire({
+                    title: response.data.message,
+                    html: "Você será redirecionado para a Home.",
+                    icon: "success",
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
+
+                window.location.assign("/home");
+            } catch (err) {
+                Swal.fire("Erro", "Falha ao autenticar com GitHub", "error");
+            }
+        }
+
+        if (code) {
+            authenticateWithGithub(code);
+        }
+    }, []);
+
 
     const googleLogin = useGoogleLogin({
         flow: "auth-code",
@@ -38,7 +90,7 @@ export default function ContentFormLogin() {
                                 showConfirmButton: false,
                             });
 
-                            window.location.assign("http://localhost:5173/");
+                            window.location.assign("/home");
                         } catch (err) {
                             console.error(err);
                             Swal.fire("Erro", "Falha ao autenticar com Google", "error");
@@ -82,7 +134,7 @@ export default function ContentFormLogin() {
                     try {
                         const response = await axios.post(`${url}/Login`, userLogin);
                         console.log("Login realizado com sucesso: ", response.data);
-                        window.location.assign("http://localhost:5173/")
+                        window.location.assign("/home")
                     } catch (err: any) {
                         console.error(err);
                         if (email == "" || senha == "") { 
@@ -161,6 +213,7 @@ export default function ContentFormLogin() {
                         textButton="GitHub"
                         styleButton={styles.authButton}
                         styleText={styles.textRede}
+                        onClick={loginGithub}
                     />
                 </div>
                 <a className={styles.forgot} href="#">

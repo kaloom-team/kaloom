@@ -19,6 +19,7 @@ input[type="password"]::-ms-reveal {
     --black: #000;
     --purple: #5b0b8f;
     --violet: #996dff;
+    --bg-home: #190C1F;
     --pink: #c075f1;
     --gray-300: #667281;
     --radius: 0.625rem;
